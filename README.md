@@ -40,7 +40,8 @@
 - has_one :order
 
 ## orders テーブル
-| Column             | Type        | Options                         |
+| Column             | Type       |Options           |
+| -------------------| ---------- | -----------------|
 | user               | references |foreign_key: true |
 | item               | references |foreign_key: true |
 
