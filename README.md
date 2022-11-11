@@ -40,7 +40,7 @@
 - has_one :order
 
 ## orders テーブル
-
+| Column             | Type        | Options                         |
 | user               | references |foreign_key: true |
 | item               | references |foreign_key: true |
 
@@ -56,7 +56,7 @@
 | -------------------| ---------- | ----------------------------------|
 | order              | references | null: false, foreign_key: true    |
 | postal_code        | string     | null: false                       |
-| prefecture_id      | integer    | null: false                       |
+| shipping_area_id   | integer    | null: false                       |
 | city_name          | string     | null: false                       |
 | block_name         | string     | null: false                       |
 | buliding_name      | string     |                                   |
