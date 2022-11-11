@@ -2,16 +2,16 @@
 
 ## users テーブル
 
-| Column             | Type       | Options    |
-| -------------------| ---------- | -----------|
-| nickname           | string     | null: false|
-| email              | string     | null: false|
-| encrypted_password | string     | null: false|
-| last_name          | string     | null: false|
-| first_name         | string     | null: false|
-| last_name_kana     | string     | null: false|
-| first_name_kana    | string     | null: false|
-| birthday           | date       | null: false|
+| Column             | Type       | Options                 |
+| -------------------| ---------- | ------------------------|
+| nickname           | string     | null: false             |
+| email              | string     | unique: true null: false|
+| encrypted_password | string     | null: false             |
+| last_name          | string     | null: false             |
+| first_name         | string     | null: false             |
+| last_name_kana     | string     | null: false             | 
+| first_name_kana    | string     | null: false             |
+| birthday           | date       | null: false             |
 
 ### Association
 
@@ -25,11 +25,11 @@
 | -------------------| ------------| --------------------------------|
 | title              | string      | null: false                     |
 | description        | text        | null: false                     |
-| category           | integer     | null: false                     |
-| status             | integer     | null: false                     |
-| shipping_charge    | integer     | null: false                     |
-| shipping_area      | integer     | null: false                     | 
-| shipping_days      | integer     | null: false                     |
+| category_id        | integer     | null: false                     |
+| status_id          | integer     | null: false                     |
+| shipping_charge_id | integer     | null: false                     |
+| shipping_area_id   | integer     | null: false                     | 
+| shipping_day_id    | integer     | null: false                     |
 | price              | integer     | null: false                     |
 | user               | references  | null: false, foreign_key: true  |
 
@@ -56,10 +56,10 @@
 | -------------------| ---------- | ----------------------------------|
 | order              | references | null: false, foreign_key: true    |
 | postal_code        | string     | null: false                       |
-| prefecture         | integer    | null: false                       |
-| city_name          | integer    | null: false                       |
-| block_name         | integer    | null: false                       |
-| buliding_name      | integer    | null: false                       |
+| prefecture_id      | integer    | null: false                       |
+| city_name          | string     | null: false                       |
+| block_name         | string     | null: false                       |
+| buliding_name      | string     |                                   |
 | phone_number       | string     | null: false                       |
 
 ### Association
