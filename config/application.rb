@@ -17,3 +17,5 @@ module Furima38657
     # the framework and any gems in your application.
   end
 end
+
+# 消すよ
