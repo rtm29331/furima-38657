@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :user
-  has_one    :order
+  # has_one    :order
 
   has_one_attached :image
   
@@ -10,11 +10,13 @@ class Item < ApplicationRecord
   belongs_to :status
   belongs_to :shipping_charge
   belongs_to :shipping_area
-  belongs_to :days_to_ship
+  belongs_to :shipping_day
   
   
   
   with_options presence: true do
+    validates :title
+    validates :text
     validates :image
     validates :name
     validates :description
@@ -22,7 +24,7 @@ class Item < ApplicationRecord
     validates :status_id
     validates :shipping_charge_id
     validates :shipping_area_id
-    validates :days_to_ship_id
+    validates :shipping_day_id
     validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
   end
 
@@ -31,7 +33,8 @@ class Item < ApplicationRecord
     validates :status_id
     validates :shipping_charge_id
     validates :shipping_area_id
-    validates :days_to_ship_id
+    validates :shipping_day_id
+  
   end
 
 

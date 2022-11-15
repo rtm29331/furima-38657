@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
   
   def index
-  #   @items = Item
+    @items = Item
   end
 
   def new
@@ -18,6 +18,11 @@ class ItemsController < ApplicationController
     end
   end
   
+  def show
+  end
+
+  def edit
+  end
   
   
   def move_to_index
