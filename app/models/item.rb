@@ -1,10 +1,25 @@
 class Item < ApplicationRecord
-  extend ActiveHash::Associations::ActiveRecordExtensions
+  
+  with_options presence: true do
+    validates :user_id
+    validates :image
+    validates :title
+    validates :description
+    validates :status_id
+    validates :shipping_charge_id
+    validates :shipping_area_id
+    validates :shipping_day_id
+    validates :price
+  end
+  
+  
+  
   belongs_to :user
   # has_one    :order
-
   has_one_attached :image
-  
+  belongs_to :category
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
   # active_storageのアソシエーション
   belongs_to :category
   belongs_to :status
@@ -14,29 +29,14 @@ class Item < ApplicationRecord
   
   
   
-  with_options presence: true do
-    validates :user_id
-    validates :image
-    validates :title
-    validates :description
-    validates :category_id
-    validates :status_id
+  with_options numericality: { other_than: 1 }  do
     validates :shipping_charge_id
     validates :shipping_area_id
     validates :shipping_day_id
-    validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
   end
 
-  
-    
-    validates :category_id,        numericality: { other_than: 1 }
-    validates :status_id,          numericality: { other_than: 1 }
-    validates :shipping_charge_id, numericality: { other_than: 1 }
-    validates :shipping_area_id,   numericality: { other_than: 1 }
-    validates :shipping_day_id,    numericality: { other_than: 1 }
-
-  
-  
+  validates_inclusion_of :price, in: 300..9999999
+  validates :price, numericality: { with: /\A[0-9]+\z/}
 
 
 end
