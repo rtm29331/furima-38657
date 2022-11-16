@@ -57,12 +57,12 @@ describe User, type: :model do
         expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
       end
       it 'passwordが英字のみでは登録できないこと' do
-        @user.password = "aaaaaa"
+        @user.password = 'aaaaaa'
         @user.valid?
         expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
       end
       it 'passwordに全角が含まれていると登録できないこと' do
-        @user.password = "あaaaaa"
+        @user.password = 'あaaaaa'
         @user.valid?
         expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
       end
