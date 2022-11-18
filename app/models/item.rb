@@ -12,7 +12,6 @@ class Item < ApplicationRecord
   belongs_to_active_hash :shipping_day
 
   with_options presence: true do
-    validates :user
     validates :image
     validates :title
     validates :description
