@@ -9,7 +9,7 @@ RSpec.describe Item, type: :model do
       it 'すべてのフォームの入力がされている' do
         expect(@item).to be_valid
       end
-    
+
       it 'カテゴリーが「---」以外であれば登録できる' do
         @item.category_id = 2
         expect(@item).to be_valid
@@ -67,19 +67,30 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank", 'Category is not a number')
       end
-      
+
+      it '商品の状態の情報が「---」だと出品できない' do
+        @item.status_id = 0
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Status must be other than 0')
+      end
+      it '商品の状態の情報が空欄だと出品できない' do
+        @item.status_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Status can't be blank", 'Status is not a number')
+      end
+
       it '配送料の負担の情報が「---」だと出品できない' do
         @item.shipping_charge_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include('Shipping charge must be other than 0')
       end
-      
+
       it '発送元の地域の情報が「---」だと出品できない' do
         @item.shipping_area_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include('Shipping area must be other than 0')
       end
-      
+
       it '発送までの日数の情報が「---」だと出品できない' do
         @item.shipping_day_id = 0
         @item.valid?
@@ -100,6 +111,11 @@ RSpec.describe Item, type: :model do
         @item.price = 10_000_000
         @item.valid?
         expect(@item.errors.full_messages).to include('Price must be less than or equal to 9999999')
+      end
+      it '価格が半角数字以外では登録できない' do
+        @item.price = '１０００'
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Price is not a number')
       end
     end
   end
