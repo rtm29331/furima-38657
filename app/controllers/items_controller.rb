@@ -21,18 +21,18 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
+    # @item = Item.find(params[:id])
   end
 
   def edit
   end
 
-  def destroy
-    @item = Item.find(params[:id])
-    return unless @item.destroy
+  # def destroy
+  #   @item = Item.find(params[:id])
+  #   return unless @item.destroy
 
-    redirect_to root_path
-  end
+  #   redirect_to root_path
+  # end
 
   def move_to_index
     redirect_to new_user_session_path unless user_signed_in?
