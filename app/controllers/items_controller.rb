@@ -26,6 +26,10 @@ class ItemsController < ApplicationController
   def edit
   end
 
+  def up
+  end
+  
+  
   # def destroy
   #   @item = Item.find(params[:id])
   #   return unless @item.destroy
