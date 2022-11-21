@@ -5,11 +5,11 @@ class ItemsController < ApplicationController
   def index
     @items = Item.includes(:user).order('created_at DESC')
   end
-
+  
   def new
     @item = Item.new
   end
-
+  
   def create
     @item = Item.new(item_params)
     if @item.save
@@ -18,11 +18,12 @@ class ItemsController < ApplicationController
       render :new
     end
   end
-
+  
   def edit
-    return if @item.user_id == current_user.id
-
-    redirect_to root_path
+    if @item.user_id == current_user.id
+    else
+      redirect_to root_path
+    end
   end
 
   def update
@@ -33,13 +34,17 @@ class ItemsController < ApplicationController
       render 'edit'
     end
   end
-
+ 
   def show
   end
 
   def destroy
-    @item.destroy if @item.user_id == current_user.id
-    redirect_to root_path
+    if @item.user_id == current_user.id
+      @item.destroy
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
   end
 
   private
@@ -52,4 +57,5 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
+
 end
