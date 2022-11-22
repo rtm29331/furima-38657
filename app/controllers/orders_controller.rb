@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
   def index
-    @order_form = OrderForm.new
+    @order_form = OrderFrom.new
   end
 end
