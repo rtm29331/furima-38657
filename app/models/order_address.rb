@@ -13,7 +13,7 @@ class OrderAddress
     validates :phone_number
   end
 
- 
+  validates :shipping_area_id, numericality: {other_than: 1, message: "can't be blank"}
 
 
   def save
