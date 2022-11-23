@@ -1,6 +1,6 @@
-class CreateOrderFroms < ActiveRecord::Migration[6.0]
+class CreateAddresses < ActiveRecord::Migration[6.0]
   def change
-    create_table :order_froms do |t|
+    create_table :addresses do |t|
       t.string     :postal_code,       null: false
       t.integer    :shipping_area_id,  null: false
       t.string     :city_name,         null: false

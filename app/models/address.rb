@@ -1,5 +1,4 @@
-class OrderFrom < ApplicationRecord
- 
+class Address < ApplicationRecord
   attr_accessor :postal_code, :shipping_area_id, :city_name, :block_name, :phone_number, :item_id, :user_id
   
   belongs_to :order
@@ -24,4 +23,5 @@ class OrderFrom < ApplicationRecord
     # donation_idには、変数donationのidと指定する
     Address.create(postal_code: postal_code, shipping_area_id: shipping_area_id, city_name: city_name, block_name: block_name, phone_number: phone_number, order_id:order_id)
   end
+end
 end
