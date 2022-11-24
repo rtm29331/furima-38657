@@ -32,7 +32,7 @@ RSpec.describe OrderAddress, type: :model do
     it '郵便番号は『３桁ハイフン４桁』半角英数字でないと保存できないこと' do
       @order_address.postal_code = '1234567'
       @order_address.valid?
-      expect(@order_address.errors.full_messages).to include "Postal code is invalid. Include hyphen(-)"
+      expect(@order_address.errors.full_messages).to include 'Postal code is invalid. Include hyphen(-)'
     end
     it '都道府県に「---」が選択されている場合は購入できないこと' do
       @order_address.shipping_area_id = ''
@@ -63,7 +63,6 @@ RSpec.describe OrderAddress, type: :model do
       @order_address.phone_number = 12_345_678_910_123_111
       @order_address.valid?
       expect(@order_address.errors.full_messages).to include('Phone number is invalid')
-    end 
-    
+    end
   end
 end
