@@ -17,6 +17,6 @@ class OrderAddress
   def save
     order = Order.create(item_id: item_id, user_id: user_id)
     Address.create(postal_code: postal_code, shipping_area_id: shipping_area_id, city_name: city_name, block_name: block_name,
-                   phone_number: phone_number, order_id: order_id)
+                   phone_number: phone_number, order_id: order_id )
   end
 end
