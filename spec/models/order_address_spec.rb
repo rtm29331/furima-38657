@@ -12,7 +12,7 @@ RSpec.describe OrderAddress, type: :model do
     it 'すべてのフォームの入力がされている' do
       expect(@order_address).to be_valid
     end
-    it 'buliding_nameが空でも保存できる' do
+    it '建物名が空でも保存できる' do
       @order_address.buliding_name = ''
       expect(@order_address).to be_valid
     end
