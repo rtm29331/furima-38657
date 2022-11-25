@@ -10,7 +10,7 @@ class OrderAddress
     validates :shipping_area_id, numericality: { other_than: 0, message: "can't be blank" }
     validates :city_name
     validates :block_name
-    validates :phone_number, format: { with: /\A[0-9]{11}\z/, message: 'is invalid' }
+    validates :phone_number, format: { with: /\A\d{10}$|^\d{11}\z/, message: 'is invalid' }
     validates :token
   end
 
