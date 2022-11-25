@@ -37,7 +37,7 @@ RSpec.describe OrderAddress, type: :model do
     it '都道府県に「---」が選択されている場合は購入できないこと' do
       @order_address.shipping_area_id = ''
       @order_address.valid?
-      expect(@order_address.errors.full_messages).to include "Shipping area can't be blank"
+      expect(@order_address.errors.full_messages).to include ("Shipping area can't be blank")
     end
     it '市区町村が空だと購入できないこと' do
       @order_address.city_name = ''
