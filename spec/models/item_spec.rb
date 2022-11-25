@@ -53,9 +53,9 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Description can't be blank")
       end
       it 'カテゴリーの情報が「---」だと出品できない' do
-        @item.category_id = 1
+        @item.category_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include('Category must be other than 1')
+        expect(@item.errors.full_messages).to include('Category must be other than 0')
       end
       it 'カテゴリーの情報が空欄だと出品できない' do
         @item.category_id = nil
@@ -64,9 +64,9 @@ RSpec.describe Item, type: :model do
       end
 
       it '商品の状態の情報が「---」だと出品できない' do
-        @item.status_id = 1
+        @item.status_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include('Status must be other than 1')
+        expect(@item.errors.full_messages).to include('Status must be other than 0')
       end
       it '商品の状態の情報が空欄だと出品できない' do
         @item.status_id = nil
@@ -75,21 +75,21 @@ RSpec.describe Item, type: :model do
       end
 
       it '配送料の負担の情報が「---」だと出品できない' do
-        @item.shipping_charge_id = 1
+        @item.shipping_charge_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include('Shipping charge must be other than 1')
+        expect(@item.errors.full_messages).to include('Shipping charge must be other than 0')
       end
 
       it '発送元の地域の情報が「---」だと出品できない' do
-        @item.shipping_area_id = 1
+        @item.shipping_area_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include('Shipping area must be other than 1')
+        expect(@item.errors.full_messages).to include('Shipping area must be other than 0')
       end
 
       it '発送までの日数の情報が「---」だと出品できない' do
-        @item.shipping_day_id = 1
+        @item.shipping_day_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include('Shipping day must be other than 1')
+        expect(@item.errors.full_messages).to include('Shipping day must be other than 0')
       end
 
       it '価格が空欄だと出品できない' do
