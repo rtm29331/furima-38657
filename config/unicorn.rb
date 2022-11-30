@@ -8,16 +8,16 @@ worker_processes 1
 working_directory "#{app_path}/current"  # 「current」を指定
 
 #Unicornの起動に必要なファイルの設置場所を指定
-pid "#{app_path}/shared/tmp/pids/unicorn.pid"  # 「shared」の中を
+pid "#{app_path}/shared/tmp/pids/unicorn.pid"  # 「shared」の中を参照するよう変更
 
 #ポート番号を指定
-listen "#{app_path}/shared/tmp/sockets/unicorn.sock"
+listen "#{app_path}/shared/tmp/sockets/unicorn.sock"  # 「shared」の中を参照するよう変更
 
 #エラーのログを記録するファイルを指定
-stderr_path "#{app_path}/shared/log/unicorn.stderr.log"
+stderr_path "#{app_path}/shared/log/unicorn.stderr.log"  # 「shared」の中を参照するよう変更
 
 #通常のログを記録するファイルを指定
-stdout_path "#{app_path}/shared/log/unicorn.stdout.log"
+stdout_path "#{app_path}/shared/log/unicorn.stdout.log"  # 「shared」の中を参照するよう変更
 
 #Railsアプリケーションの応答を待つ上限時間を設定
 timeout 60
